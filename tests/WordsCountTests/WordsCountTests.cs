@@ -5,16 +5,17 @@ namespace WordsCountTests
 {
     public class WordsCountTests
     {
-        [Fact]
-        public void EmptyLineTest()
+        [Theory]
+        [InlineData("", 0)]
+        [InlineData("solve", 1)]
+        public void WordsCountTest(string line, int expectedCount)
         {
-            var line = "";
-            Assert.Equal(0, WordsCount(line));
+            Assert.Equal(expectedCount, WordsCount(line));
         }
 
         private int WordsCount(string line)
         {
-            return 0;
+            return line.Length == 0 ? 0 : 1;
         }
     }
 }

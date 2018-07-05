@@ -7,6 +7,7 @@ namespace WordsCountTests
     {
         [Theory]
         [InlineData("", 0)]
+        [InlineData(" ", 0)]
         [InlineData("solve", 1)]
         [InlineData("TDD", 1)]
         [InlineData("I", 1)]
@@ -21,7 +22,9 @@ namespace WordsCountTests
         {
             if (string.IsNullOrEmpty(line))
                 return 0;
-            return line.Split(' ').Length;
+            return line
+                .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                .Length;
         }
     }
 }

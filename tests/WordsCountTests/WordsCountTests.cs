@@ -6,6 +6,7 @@ namespace WordsCountTests
     public class WordsCountTests
     {
         [Theory]
+        [InlineData(null, 0)]
         [InlineData("", 0)]
         [InlineData(" ", 0)]
         [InlineData("solve", 1)]

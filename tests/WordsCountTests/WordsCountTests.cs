@@ -14,6 +14,8 @@ namespace WordsCountTests
         [InlineData("I", 1)]
         [InlineData("I'm", 1)]
         [InlineData("I am", 2)]
+        [InlineData("   TDD   is a    discipline  ", 4)]
+        // [InlineData("Think about architecture. ...                ", 3)]
         public void WordsCountTest(string line, int expectedCount)
         {
             Assert.Equal(expectedCount, WordsCount(line));

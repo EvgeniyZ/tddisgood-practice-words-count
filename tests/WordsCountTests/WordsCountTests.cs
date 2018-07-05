@@ -11,6 +11,7 @@ namespace WordsCountTests
         [InlineData("TDD", 1)]
         [InlineData("I", 1)]
         [InlineData("I'm", 1)]
+        [InlineData("I am", 2)]
         public void WordsCountTest(string line, int expectedCount)
         {
             Assert.Equal(expectedCount, WordsCount(line));
@@ -18,7 +19,9 @@ namespace WordsCountTests
 
         private int WordsCount(string line)
         {
-            return line.Length == 0 ? 0 : 1;
+            if (string.IsNullOrEmpty(line))
+                return 0;
+            return line.Split(' ').Length;
         }
     }
 }
